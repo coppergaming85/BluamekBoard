@@ -1,9 +1,10 @@
 [package]
 name = "BluamekBoard"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 
 [dependencies]
+keycodes = "0.1.0"
 macroquad = "0.4.14"
 
 [profile.release]
@@ -11,3 +12,8 @@ opt-level = 3
 lto = true
 strip = true
 codegen-units = 1
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.58", features = ["Win32_UI_Input_KeyboardAndMouse"] }
+
+[package.metadata.winres]
